@@ -100,12 +100,30 @@ footer {
 }
 .footer_nav ul li {
   padding: 14px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.footer_nav ul li:not(:last-child)::after {
+  content: "|";
+  margin-left: 20px;
+}
+.footer_nav ul li:nth-child(3) {
+  font-weight: 700;
 }
 .icon_wrap {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.footer p {
+.company_info {
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-size: 14px;
+  font-weight: 400;
   color: #767676;
+  padding: 10px;
+  line-height: 25px;
+}
+.company_info span {
+  font-weight: 700;
+  font-size: 14px;
 }
