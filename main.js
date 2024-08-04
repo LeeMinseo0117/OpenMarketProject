@@ -14,6 +14,8 @@ const req = new Promise((resolve, reject) => {
 
 function drawProduct(data) {
   const $Product_lists = document.querySelector(".product_lists");
+  const $productLink = document.createElement("a");
+  $productLink.className = "productLink";
   const $productDiv = document.createElement("div");
   $productDiv.className = "productItem";
   const $productImage = document.createElement("Img");
@@ -24,8 +26,6 @@ function drawProduct(data) {
   $productName.className = "productName";
   const $price = document.createElement("p");
   $price.className = "price";
-  // const $priceUnit = document.createElement("span");
-  // $priceUnit.className = "priceUnit";
 
   $productImage.src = data.image;
   console.log($productImage);
@@ -42,9 +42,11 @@ function drawProduct(data) {
     formattedPrice = "가격 정보 없음";
   }
   $price.textContent = formattedPrice;
+  $productLink.setAttribute("href", "");
 
   $Product_lists.append($productDiv);
-  $productDiv.append($productImage, $storeName, $productName, $price);
+  $productDiv.append($productLink);
+  $productLink.append($productImage, $storeName, $productName, $price);
 }
 
 req

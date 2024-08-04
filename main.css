@@ -120,6 +120,10 @@ event_banner {
   font-weight: 400;
   padding-left: 2px;
 }
+.productLink {
+  text-decoration: none;
+  color: #000000;
+}
 .footer_wrap {
   width: 100%;
   background-color: #f2f2f2;
