@@ -24,6 +24,8 @@ function drawProduct(data) {
   $productName.className = "productName";
   const $price = document.createElement("p");
   $price.className = "price";
+  // const $priceUnit = document.createElement("span");
+  // $priceUnit.className = "priceUnit";
 
   $productImage.src = data.image;
   console.log($productImage);
@@ -35,7 +37,7 @@ function drawProduct(data) {
   $productImage.style.objectFit = "fill";
   let formattedPrice;
   if (data.price && !isNaN(data.price)) {
-    formattedPrice = Number(data.price).toLocaleString("ko-KR") + "원";
+    formattedPrice = Number(data.price).toLocaleString("ko-KR");
   } else {
     formattedPrice = "가격 정보 없음";
   }
