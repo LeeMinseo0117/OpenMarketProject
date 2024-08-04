@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.headerWrap,
+.articleWrap {
+  width: 100%;
+}
+header,
+article {
+  max-width: 550px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+.purchaseMembership,
+.saleMembership {
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000000;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 275px;
+  padding: 20px 88px 38px 87px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.membershipWrap {
+  display: flex;
+  justify-content: center;
+}
+.saleMembership {
+  background-color: #f2f2f2;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  width: 550px;
+  box-sizing: border-box;
+}
+#id,
+#pw {
+  width: 480px;
+  height: 60px;
+  padding: 20px 0px 0px 0px;
+  border: 1px solid #c4c4c4;
+  border-width: 0 0 1px;
+}
