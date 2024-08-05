@@ -101,3 +101,11 @@ a {
   content: "|";
   margin: 0 14px;
 }
+#alert {
+  font-family: "SpoqaHanSansNeo-Regular";
+  margin-left: 35px;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #eb5757;
+}
