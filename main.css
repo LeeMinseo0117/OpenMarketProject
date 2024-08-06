@@ -6,9 +6,17 @@
   font-style: normal;
 }
 
-body,
+.headerWrap,
 eventBannerWrap {
   width: 100%;
+}
+.headerWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
 }
 .topNavigationBar,
 eventBanner {
@@ -74,6 +82,7 @@ eventBanner {
 .eventBanner {
   height: 500px;
   background-color: #f2f2f2;
+  margin-top: 93px;
 }
 .productContainer {
   max-width: 1280px;
