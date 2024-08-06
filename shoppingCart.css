@@ -100,6 +100,7 @@
   margin-bottom: 52px;
 }
 .shoppingCartInfo {
+  display: flex;
   background-color: #f2f2f2;
   padding-top: 19px;
   padding-bottom: 18px;
@@ -111,6 +112,8 @@
 #checkbox {
   margin-right: 314px;
   margin-left: 30px;
+  width: 20px;
+  height: 20px;
 }
 #productInfo {
   font-family: "SpoqaHanSansNeo-Regular";
