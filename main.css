@@ -7,15 +7,15 @@
 }
 
 body,
-event_banner_wrap {
+eventBannerWrap {
   width: 100%;
 }
 header,
-event_banner {
+eventBanner {
   max-width: 1280px;
   margin: 0 auto;
 }
-.top_navigation_bar {
+.topNavigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,7 @@ event_banner {
   background-color: white;
 }
 
-.header_left_wrap {
+.headerLeftWrap {
   display: flex;
   align-items: center;
 }
@@ -32,7 +32,7 @@ event_banner {
   margin-right: 30px;
 }
 
-.header_left_wrap input[type="search"] {
+.headerLeftWrap input[type="search"] {
   width: 400px;
   height: 46px;
   padding: 13px 22px;
@@ -44,12 +44,12 @@ event_banner {
   font-size: 16px;
 }
 
-.header_right_wrap {
+.headerRightWrap {
   display: flex;
   align-items: center;
 }
 
-.header_right_wrap a {
+.headerRightWrap a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,22 +62,22 @@ event_banner {
   text-align: center;
 }
 
-.header_right_wrap img {
+.headerRightWrap img {
   margin-bottom: 5px;
 }
-.top_navigation_bar input {
+.topNavigationBar input {
   border: 2px solid #21bf48;
   border-radius: 50px;
 }
-.event_banner {
+.eventBanner {
   height: 500px;
   background-color: #f2f2f2;
 }
-.product_container {
+.productContainer {
   max-width: 1280px;
   margin: 0 auto;
 }
-.product_lists {
+.productLists {
   display: flex;
   flex-wrap: wrap;
   /* gap: 70px; */
@@ -124,7 +124,7 @@ event_banner {
   text-decoration: none;
   color: #000000;
 }
-.footer_wrap {
+.footerWrap {
   width: 100%;
   background-color: #f2f2f2;
   margin-top: 180px;
@@ -133,41 +133,41 @@ footer {
   max-width: 1280px;
   margin: 0 auto;
 }
-.container {
+.footerNavContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 60px;
 }
-.footer_nav {
+.footerNav {
   display: flex;
   align-items: center;
 }
-.footer_nav a {
+.footerNav a {
   text-decoration: none;
   color: #000000;
 }
-.footer_nav ul {
+.footerNav ul {
   display: inline-flex;
 }
-.footer_nav ul li {
+.footerNav ul li {
   padding: 14px;
   font-weight: 400;
   font-size: 14px;
 }
-.footer_nav ul li:not(:last-child)::after {
+.footerNav ul li:not(:last-child)::after {
   content: "|";
   margin-left: 20px;
 }
-.footer_nav ul li:nth-child(3) {
+.footerNav ul li:nth-child(3) {
   font-weight: 700;
 }
-.icon_wrap {
+.iconWrap {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.company_info {
+.companyInfo {
   font-family: "SpoqaHanSansNeo-Regular";
   font-size: 14px;
   font-weight: 400;
@@ -175,7 +175,7 @@ footer {
   padding: 10px;
   line-height: 25px;
 }
-.company_info span {
+.companyInfo span {
   font-weight: 700;
   font-size: 14px;
 }

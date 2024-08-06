@@ -13,7 +13,7 @@ const req = new Promise((resolve, reject) => {
 });
 
 function drawProduct(data) {
-  const $Product_lists = document.querySelector(".product_lists");
+  const $productLists = document.querySelector(".productLists");
   const $productLink = document.createElement("a");
   $productLink.className = "productLink";
   const $productDiv = document.createElement("div");
@@ -44,7 +44,7 @@ function drawProduct(data) {
   $price.textContent = formattedPrice;
   $productLink.setAttribute("href", "");
 
-  $Product_lists.append($productDiv);
+  $productLists.append($productDiv);
   $productDiv.append($productLink);
   $productLink.append($productImage, $storeName, $productName, $price);
 }
