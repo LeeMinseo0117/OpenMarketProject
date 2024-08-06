@@ -12,20 +12,20 @@ const $form = document.querySelector("form");
 const $signIn = document.querySelector("#signIn");
 const $alert = document.querySelector("#alert");
 
-const $purchaseMembership = document.querySelector(".purchaseMembership");
-const $saleMembership = document.querySelector(".saleMembership");
+const $buyerMembership = document.querySelector(".buyerMembership");
+const $sellerMembership = document.querySelector(".sellerMembership");
 let login_type = "BUYER";
-$purchaseMembership.addEventListener("click", (e) => {
+$buyerMembership.addEventListener("click", (e) => {
   e.preventDefault();
-  $purchaseMembership.style.backgroundColor = "#FFFFFF";
-  $saleMembership.style.backgroundColor = "#f2f2f2";
+  $buyerMembership.style.backgroundColor = "#FFFFFF";
+  $sellerMembership.style.backgroundColor = "#f2f2f2";
   login_type = "BUYER";
   return;
 });
-$saleMembership.addEventListener("click", (e) => {
+$sellerMembership.addEventListener("click", (e) => {
   e.preventDefault();
-  $purchaseMembership.style.backgroundColor = "#f2f2f2";
-  $saleMembership.style.backgroundColor = "#FFFFFF";
+  $buyerMembership.style.backgroundColor = "#f2f2f2";
+  $sellerMembership.style.backgroundColor = "#FFFFFF";
   login_type = "SELLER";
   return;
 });
