@@ -44,9 +44,7 @@ eventBanner {
   font-size: 16px;
 }
 #search {
-  background: none;
-  border: none;
-  transform: translateX(-55px);
+  transform: translateX(-50px);
 }
 .headerRightWrap {
   display: flex;
