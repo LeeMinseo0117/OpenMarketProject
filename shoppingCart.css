@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.headerWrap {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 5px 0px #0000001a;
+}
+.topNavigationBar {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.topNavigationBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0px;
+  background-color: white;
+}
+
+.headerLeftWrap {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  margin-right: 30px;
+}
+
+.headerLeftWrap input[type="search"] {
+  width: 400px;
+  height: 46px;
+  padding: 13px 22px;
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+  font-size: 16px;
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: 400;
+  font-size: 16px;
+}
+#search {
+  transform: translateX(-50px);
+}
+.headerRightWrap {
+  display: flex;
+  align-items: center;
+}
+
+.headerRightWrap a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 26px;
+  text-decoration: none;
+  color: black;
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+}
+
+.headerRightWrap img {
+  margin-bottom: 5px;
+}
+#shoppingCart {
+  color: #21bf48;
+}
+.topNavigationBar input {
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+}
+section {
+  margin-top: 93px;
+}

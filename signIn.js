@@ -76,8 +76,9 @@ $form.addEventListener("submit", async function (e) {
   const confirmLogin = await signIn(signInData);
   console.log(confirmLogin.status);
   if (confirmLogin.status === 200) {
+    localStorage.setItem("token", confirmLogin.data.token);
+    localStorage.setItem("user_type", confirmLogin.data.user_type);
     // todo : 로그인 된 페이지로 이동하기
-
     window.location.href = "main.html";
   } else {
     $alert.textContent = "아이디 또는 비밀번호가 일치하지 않습니다.";

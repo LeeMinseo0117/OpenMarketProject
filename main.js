@@ -42,7 +42,10 @@ function drawProduct(data) {
     formattedPrice = "가격 정보 없음";
   }
   $price.textContent = formattedPrice;
-  $productLink.setAttribute("href", "");
+  $productLink.setAttribute(
+    "href",
+    "/shoppingCart.html?product_id=" + data.product_id
+  );
 
   $productLists.append($productDiv);
   $productDiv.append($productLink);
