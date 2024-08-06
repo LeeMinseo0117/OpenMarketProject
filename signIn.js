@@ -77,6 +77,8 @@ $form.addEventListener("submit", async function (e) {
   console.log(confirmLogin.status);
   if (confirmLogin.status === 200) {
     // todo : 로그인 된 페이지로 이동하기
+
+    window.location.href = "main.html";
   } else {
     $alert.textContent = "아이디 또는 비밀번호가 일치하지 않습니다.";
     // - 아이디나 비밀번호가 일치하지 않는다면, 비밀번호 입력창에 focus이벤트가 발생하고 빈칸이 됩니다. -> 완료
