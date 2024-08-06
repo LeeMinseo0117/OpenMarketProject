@@ -20,7 +20,7 @@ function drawProduct(data) {
   $productDiv.className = "productItem";
   const $productImage = document.createElement("Img");
   $productImage.className = "productImage";
-  const $storeName = document.createElement("h2");
+  const $storeName = document.createElement("p");
   $storeName.className = "storeName";
   const $productName = document.createElement("p");
   $productName.className = "productName";
@@ -44,7 +44,7 @@ function drawProduct(data) {
   $price.textContent = formattedPrice;
   $productLink.setAttribute(
     "href",
-    "/shoppingCart.html?product_id=" + data.product_id
+    "/ProductDetails.html?product_id=" + data.product_id
   );
 
   $productLists.append($productDiv);
