@@ -16,7 +16,7 @@ const req = new Promise((resolve, reject) => {
 });
 
 function drawProduct(data) {
-  const $productLists = document.querySelector(".productLists");
+  const $productList = document.querySelector(".productList");
   const $productLink = document.createElement("a");
   $productLink.className = "productLink";
   const $productDiv = document.createElement("div");
@@ -49,7 +49,7 @@ function drawProduct(data) {
     "/ProductDetails.html?product_id=" + data.product_id
   );
 
-  $productLists.append($productDiv);
+  $productList.append($productDiv);
   $productDiv.append($productLink);
   $productLink.append($productImage, $storeName, $productName, $price);
 }
