@@ -1,5 +1,6 @@
 const $userIconLink = document.querySelector("#userIconLink");
 const $userIcon = document.querySelector("#userIcon");
+
 const req = new Promise((resolve, reject) => {
   const requestObj = new XMLHttpRequest();
   requestObj.open("GET", "https://openmarket.weniv.co.kr/products/");
