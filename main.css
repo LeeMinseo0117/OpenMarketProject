@@ -191,3 +191,11 @@ footer {
   font-weight: 700;
   font-size: 14px;
 }
+.clickMyPage {
+  margin-bottom: 8px;
+}
+.clickMyPage:hover,
+.clickLogOut:hover {
+  border: 1px solid #767676;
+  border-radius: 5px;
+}
