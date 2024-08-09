@@ -63,10 +63,17 @@ const cartListGet = async function () {
 };
 
 function drawProduct(data) {
+  const $productsContainer = document.createElement("div");
+  $productsContainer.className = "productsContainer";
   const $productDiv = document.createElement("div");
-  $productDiv.className = "productItem";
+  $productDiv.className = "productDiv";
+  const $productCheck = document.createElement("input");
+  $productCheck.className = "productCheck";
+  $productCheck.type = "checkbox";
   const $productImage = document.createElement("Img");
   $productImage.className = "productImage";
+  const $productContent = document.createElement("div");
+  $productContent.className = "productContent";
   const $storeName = document.createElement("p");
   $storeName.className = "storeName";
   const $productName = document.createElement("p");
@@ -78,18 +85,32 @@ function drawProduct(data) {
   $storeName.textContent = data.store_name;
   $productName.textContent = data.product_name;
   $price.textContent = data.price;
-  $productImage.style.width = "600px";
-  $productImage.style.height = "600px";
-  $productImage.style.objectFit = "fill";
   let formattedPrice;
   if (data.price && !isNaN(data.price)) {
     formattedPrice = Number(data.price).toLocaleString("ko-KR");
   } else {
     formattedPrice = "가격 정보 없음";
   }
-
-  $productDiv.append($productImage, $storeName, $productName, $price);
-  document.body.appendChild($productDiv);
+  $price.textContent = formattedPrice;
+  $productsContainer.append(
+    $productDiv,
+    $productCheck,
+    $productImage,
+    $productContent,
+    $storeName,
+    $productName,
+    $price
+  );
+  $productDiv.append(
+    $productCheck,
+    $productImage,
+    $productContent,
+    $storeName,
+    $productName,
+    $price
+  );
+  $productContent.append($storeName, $productName, $price);
+  document.body.appendChild($productsContainer);
 
   // 로그인시 마이페이지로 변경
   if (localStorage.getItem("user_type") && localStorage.getItem("token")) {
