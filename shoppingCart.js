@@ -2,43 +2,54 @@ const $userIconLink = document.querySelector("#userIconLink");
 const $userIcon = document.querySelector("#userIcon");
 
 // 장바구니 목록 보기
+
+async function fetchProductDetail(productId) {
+  // 여기에 각 상품의 정보를 가져오는 비동기 함수 구현
+  const response = await fetch(
+    `https://openmarket.weniv.co.kr/products/${productId}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
+async function fetchAllProductDetails(productIds) {
+  // 각 상품 ID에 대해 fetchProductDetail 호출
+  const promises = productIds.map((productId) => fetchProductDetail(productId));
+
+  // 모든 비동기 작업이 완료될 때까지 기다림
+  const results = await Promise.all(promises);
+
+  return results;
+}
+
 const cartListGet = async function () {
   try {
     const res = await fetch("https://openmarket.weniv.co.kr/cart/", {
       headers: {
+        "Content-Type": "application/json",
         Authorization: `JWT ${localStorage.getItem("token")}`,
       },
     });
     const data = await res.json();
-    const productIds = data.results.map((item) => item.product_id);
     console.log(data);
-    drawProduct(data);
+    console.log(data.results);
+    console.log(Array.isArray(data));
+    const productIds = data.results.map((item) => item.product_id);
+    console.log(Array.isArray(data.results));
+    console.log(Array.isArray(productIds));
+
     console.log("Product IDs:", productIds);
-    const fetchProductDetails = async (productIds) => {
-      try {
-        const fetchPromises = productIds.map((productId) =>
-          fetch(`https://openmarket.weniv.co.kr/products/${productId}/`, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
-        );
+    const productDetails = await fetchAllProductDetails(productIds);
+    console.log(productDetails);
+    productDetails.forEach((data) => drawProduct(data));
 
-        const productsData = await Promise.all(fetchPromises);
-        console.log(productsData);
-        return productsData;
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-      }
-    };
-
-    console.log(data.results.length);
-    if (data.results.length < 1) {
+    if ((productIds.length = 0)) {
       const $h2 = document.createElement("h2");
       const $p = document.createElement("p");
       $h2.textContent = "장바구니에 담긴 상품이 없습니다.";
@@ -46,20 +57,10 @@ const cartListGet = async function () {
       document.body.appendChild($h2);
       $h2.appendChild($p);
     }
-    return productId;
   } catch (error) {
     console.log(error);
   }
 };
-
-// 초기화 함수
-async function init() {
-  const productData = await cartListGet();
-  // 데이터를 화면에 그려주기
-  drawProduct(productData);
-}
-
-init();
 
 function drawProduct(data) {
   const $productDiv = document.createElement("div");
@@ -232,3 +233,12 @@ function drawProduct(data) {
     });
   }
 }
+
+// 초기화 함수
+async function init() {
+  const productData = await cartListGet();
+  // 데이터를 화면에 그려주기
+  // drawProduct(productData);
+}
+
+init();
