@@ -139,6 +139,7 @@ body {
   justify-content: center;
 }
 .productCheck {
+  margin-top: 90px;
   margin-left: 30px;
   width: 20px;
   height: 20px;
@@ -165,6 +166,7 @@ body {
 .productName {
   font-weight: 400;
   font-size: 18px;
+  width: 418px;
 }
 .price {
   font-weight: 700;
@@ -172,4 +174,20 @@ body {
 }
 .price::after {
   content: "원";
+}
+.countContainer {
+  margin-left: 48px;
+  margin-top: 75px;
+}
+.count {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+.decreaseButton,
+.increaseButton {
+  width: 50px;
+  height: 50px;
 }

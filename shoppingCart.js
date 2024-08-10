@@ -80,6 +80,62 @@ function drawProduct(data) {
   $productName.className = "productName";
   const $price = document.createElement("p");
   $price.className = "price";
+  const $countContainer = document.createElement("div");
+  $countContainer.className = "countContainer";
+  const $count = document.createElement("input");
+  $count.className = "count";
+  const $decreaseButton = document.createElement("button");
+  $decreaseButton.className = "decreaseButton";
+  const $increaseButton = document.createElement("button");
+  $increaseButton.className = "increaseButton";
+  let $productPrice = document.createElement("p");
+  $productPrice.className = "productPrice";
+  const $goPaymentButton = document.createElement("button");
+  $goPaymentButton.className = "goPaymentButton";
+
+  $decreaseButton.textContent = "-";
+  $increaseButton.textContent = "+";
+  $count.type = "number";
+  $count.value = 1;
+  $count.min = 1;
+  $count.max = 99;
+  $count.readOnly = true;
+
+  $decreaseButton.addEventListener("click", () => {
+    let value = parseInt($count.value);
+    if (value > parseInt($count.min)) {
+      $count.value = value - 1;
+      console.log($count.value);
+      return;
+    }
+  });
+
+  $increaseButton.addEventListener("click", () => {
+    let value = parseInt($count.value);
+    if (value < parseInt($count.max)) {
+      $count.value = value + 1;
+      console.log($count.value);
+      return;
+    }
+  });
+
+  $count.addEventListener("change", function (e) {
+    console.log("oninput", e.target.value);
+  });
+
+  console.log($count);
+  const countValue = Number($count.value);
+
+  console.log(countValue);
+  console.log(typeof countValue);
+
+  const priceValue = data.price;
+  console.log(priceValue);
+  console.log(typeof priceValue);
+
+  $productPrice = countValue * priceValue;
+
+  $countContainer.append($decreaseButton, $count, $increaseButton);
 
   $productImage.src = data.image;
   $storeName.textContent = data.store_name;
@@ -91,6 +147,7 @@ function drawProduct(data) {
   } else {
     formattedPrice = "가격 정보 없음";
   }
+
   $price.textContent = formattedPrice;
   $productsContainer.append(
     $productDiv,
@@ -99,7 +156,8 @@ function drawProduct(data) {
     $productContent,
     $storeName,
     $productName,
-    $price
+    $price,
+    $countContainer
   );
   $productDiv.append(
     $productCheck,
@@ -107,7 +165,9 @@ function drawProduct(data) {
     $productContent,
     $storeName,
     $productName,
-    $price
+    $price,
+    $countContainer,
+    $productPrice
   );
   $productContent.append($storeName, $productName, $price);
   document.body.appendChild($productsContainer);
