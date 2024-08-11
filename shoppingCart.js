@@ -106,6 +106,7 @@ function drawProduct(data) {
     if (value > parseInt($count.min)) {
       $count.value = value - 1;
       console.log($count.value);
+      $productPrice.innerText = $count.value * priceValue;
       return;
     }
   });
@@ -115,17 +116,18 @@ function drawProduct(data) {
     if (value < parseInt($count.max)) {
       $count.value = value + 1;
       console.log($count.value);
+      $productPrice.innerText = $count.value * priceValue;
       return;
     }
   });
 
   $count.addEventListener("change", function (e) {
-    console.log("oninput", e.target.value);
+    localStorage.setItem("onChange", e.target.value);
+    console.log($count);
+    return;
   });
 
-  console.log($count);
   const countValue = Number($count.value);
-
   console.log(countValue);
   console.log(typeof countValue);
 
@@ -133,7 +135,7 @@ function drawProduct(data) {
   console.log(priceValue);
   console.log(typeof priceValue);
 
-  $productPrice = countValue * priceValue;
+  $productPrice.innerText = countValue * priceValue;
 
   $countContainer.append($decreaseButton, $count, $increaseButton);
 
