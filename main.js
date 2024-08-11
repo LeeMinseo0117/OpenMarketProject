@@ -1,3 +1,4 @@
+const $shoppingCart = document.querySelector("#shoppingCart");
 const $userIconLink = document.querySelector("#userIconLink");
 const $userIcon = document.querySelector("#userIcon");
 
@@ -208,5 +209,21 @@ if (localStorage.getItem("user_type") && localStorage.getItem("token")) {
     // $userIconLink.setAttribute("href", "./signIn.html");
     // $userIconLink.href = "./signIn.html";
     location.href = "./signIn.html";
+  });
+  $shoppingCart.addEventListener("click", (e) => {
+    e.preventDefault();
+    const $modalContainer = document.createElement("div");
+    $modalContainer.className = "modalContainer";
+    const $modalContent = document.createElement("div");
+    $modalContent.className = "modalContent";
+    const $modalText = document.createElement("p");
+    $modalText.className = "modalText";
+    const $modalYes = document.createElement("button");
+    $modalYes.className = "modalYes";
+    const $modalNo = document.createElement("button");
+    $modalNo.className = "modalNo";
+    $modalContainer.append($modalContent, $modalText, $modalYes, $modalNo);
+    console.log("click");
+    $modalContainer.style.display = "block";
   });
 }
