@@ -89,14 +89,12 @@ eventBanner {
   max-width: 1280px;
   margin: 0 auto;
 }
-.productLists {
+.productList {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 70px; */
   justify-content: space-between;
 }
 .productItem {
-  /* 스타일 정의 */
   width: 33.333%;
   padding: 10px;
   box-sizing: border-box;
