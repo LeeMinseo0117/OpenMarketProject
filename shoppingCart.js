@@ -6,7 +6,7 @@ const $userIcon = document.querySelector("#userIcon");
 async function fetchProductDetail(productId) {
   // 여기에 각 상품의 정보를 가져오는 비동기 함수 구현
   const response = await fetch(
-    `https://openmarket.weniv.co.kr/products/${productId}`,
+    `https://estapi.openmarket.weniv.co.kr/products/${productId}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ async function fetchAllProductDetails(productIds) {
 
 const cartListGet = async function () {
   try {
-    const res = await fetch("https://openmarket.weniv.co.kr/cart/", {
+    const res = await fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `JWT ${localStorage.getItem("token")}`,

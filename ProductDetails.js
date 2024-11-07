@@ -4,7 +4,7 @@ console.log(window.location.search);
 const productLists = async function (productId) {
   try {
     const res = await fetch(
-      "https://openmarket.weniv.co.kr/products/" + productId,
+      "https://estapi.openmarket.weniv.co.kr/products/" + productId,
       {
         method: "GET",
         headers: {
@@ -42,7 +42,7 @@ const productId = param.get("product_id");
 // 장바구니 물건 넣기
 const cartListPost = async function (quantity) {
   try {
-    const res = await fetch("https://openmarket.weniv.co.kr/cart/", {
+    const res = await fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

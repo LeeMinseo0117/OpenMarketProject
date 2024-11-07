@@ -32,7 +32,7 @@ $sellerMembership.addEventListener("click", (e) => {
 
 const signIn = async function (loginData) {
   try {
-    const res = await fetch("https://openmarket.weniv.co.kr/accounts/login/", {
+    const res = await fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
