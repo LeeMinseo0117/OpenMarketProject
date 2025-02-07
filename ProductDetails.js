@@ -82,12 +82,13 @@ function drawProduct(data) {
   $inputCart.textContent = "장바구니";
 
   $productImage.src = data.image;
-  $storeName.textContent = data.store_name;
-  $productName.textContent = data.product_name;
+  $storeName.textContent = data.seller.store_name;
+  $productName.textContent = data.name;
   $price.textContent = data.price;
   $productImage.style.width = "600px";
   $productImage.style.height = "600px";
   $productImage.style.objectFit = "fill";
+  $productDiv.style.paddingTop = "320px"
   let formattedPrice;
   if (data.price && !isNaN(data.price)) {
     formattedPrice = Number(data.price).toLocaleString("ko-KR");
