@@ -47,7 +47,7 @@ function drawProduct(data) {
   $price.textContent = formattedPrice;
   $productLink.setAttribute(
     "href",
-    "/ProductDetails.html?product_id=" + data.product_id
+    "/ProductDetails.html?product_id=" + data.id
   );
 
   $productList.append($productDiv);
