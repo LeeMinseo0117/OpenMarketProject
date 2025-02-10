@@ -41,12 +41,17 @@ const productId = param.get("product_id");
 
 // 장바구니 물건 넣기
 const cartListPost = async function (quantity) {
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("인증 토큰이 없습니다");
+  }
   try {
     const res = await fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `JWT ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         product_id: productId,
@@ -65,6 +70,8 @@ const cartListPost = async function (quantity) {
 function drawProduct(data) {
   const $productDiv = document.createElement("div");
   $productDiv.className = "productItem";
+  const $productText = document.createElement('div');
+  $productText.className = 'productText'
   const $productImage = document.createElement("Img");
   $productImage.className = "productImage";
   const $storeName = document.createElement("p");
@@ -79,6 +86,7 @@ function drawProduct(data) {
   const $decreaseButton = document.createElement("button");
   const $increaseButton = document.createElement("button");
   const $inputCart = document.createElement("button");
+  const $totalCount = document.createElement('p');
   $inputCart.textContent = "장바구니";
 
   $productImage.src = data.image;
@@ -119,17 +127,30 @@ function drawProduct(data) {
     }
   });
 
+
   $countContainer.append($decreaseButton, $count, $increaseButton);
 
-  $productDiv.append(
-    $productImage,
+  $productText.append(
     $storeName,
     $productName,
     $price,
     $countContainer,
     $inputCart
+  )
+
+  $productDiv.append(
+    $productImage,
+    $productText
   );
+
+
+  $productDiv.style.display='flex';
+  $productDiv.style.justifyContent='center';
+  $productDiv.style.gap='50px';
+
   document.body.appendChild($productDiv);
+
+
 
   $inputCart.addEventListener("click", () => {
     console.log("click");
