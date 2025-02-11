@@ -49,28 +49,46 @@ const productId = param.get("product_id");
 
 // 장바구니 물건 넣기
 const cartListPost = async function (quantity) {
-
   const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
-    throw new Error("인증 토큰이 없습니다");
+      alert("로그인이 필요한 서비스입니다.");
+      window.location.href = './signIn.html';
+      return;
   }
+
   try {
-    const res = await fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({
-        product_id: productId,
-        quantity: quantity,
-      }),
-    });
-    const data = await res.json();
-    console.log(data);
-    return data;
+      const res = await fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${accessToken}`,
+          },
+          body: JSON.stringify({
+              product_id: productId,
+              quantity: parseInt(quantity),
+          }),
+      });
+
+      console.log("장바구니 추가 응답 상태:", res.status);
+      const data = await res.json();
+      console.log("장바구니 추가 응답 데이터:", data);
+
+      if (res.ok) {
+          alert("상품이 장바구니에 추가되었습니다.");
+          // 장바구니 페이지로 이동하거나 현재 페이지 유지
+          if (confirm("장바구니로 이동하시겠습니까?")) {
+              window.location.href = './shoppingCart.html';
+          }
+      } else {
+          if (data.detail) {
+              alert(data.detail);
+          } else {
+              alert("장바구니 추가에 실패했습니다.");
+          }
+      }
   } catch (error) {
-    console.log(error);
+      console.error("장바구니 추가 중 에러 발생:", error);
+      alert("장바구니 추가 중 오류가 발생했습니다.");
   }
 };
 
