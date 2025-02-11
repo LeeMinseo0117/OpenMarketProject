@@ -1,5 +1,13 @@
 console.log(window.location.search);
 
+const $shoppingCart = document.querySelector("#shoppingCart");
+const $userIconLink = document.querySelector("#userIconLink");
+const $userIcon = document.querySelector("#userIcon");
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeUI($userIconLink, $userIcon, $shoppingCart);
+});
+
 // productId를 매개변수로 받아서 상품 정보를 서버에서 가져오는 함수
 const productLists = async function (productId) {
   try {
@@ -42,8 +50,8 @@ const productId = param.get("product_id");
 // 장바구니 물건 넣기
 const cartListPost = async function (quantity) {
 
-  const token = localStorage.getItem("token");
-  if (!token) {
+  const accessToken = localStorage.getItem("accessToken");
+  if (!accessToken) {
     throw new Error("인증 토큰이 없습니다");
   }
   try {
@@ -51,7 +59,7 @@ const cartListPost = async function (quantity) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({
         product_id: productId,

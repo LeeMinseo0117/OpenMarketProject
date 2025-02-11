@@ -76,11 +76,13 @@ $form.addEventListener("submit", async function (e) {
   const confirmLogin = await signIn(signInData);
   console.log(confirmLogin.status);
   if (confirmLogin.status === 200) {
-    localStorage.setItem("token", confirmLogin.data.token);
-    localStorage.setItem("user_type", confirmLogin.data.user_type);
+    // 로그인 성공 시 로컬 스토리지에 정보 저장
+    localStorage.setItem('accessToken', confirmLogin.data.access)
+    localStorage.setItem('refreshToken', confirmLogin.data.refresh)
+    localStorage.setItem('user_type', confirmLogin.data.user.user_type)
     // todo : 로그인 된 페이지로 이동하기
-    history.back();
-  } else {
+    history.back()
+  }else {
     $alert.textContent = "아이디 또는 비밀번호가 일치하지 않습니다.";
     // - 아이디나 비밀번호가 일치하지 않는다면, 비밀번호 입력창에 focus이벤트가 발생하고 빈칸이 됩니다. -> 완료
     $pw.value = null;
