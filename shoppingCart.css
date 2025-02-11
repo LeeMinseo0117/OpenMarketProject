@@ -76,6 +76,7 @@ body {
   margin-bottom: 5px;
 }
 #shoppingCart {
+  width: 100%;
   color: #21bf48;
 }
 .topNavigationBar input {
@@ -83,16 +84,12 @@ body {
   border-radius: 50px;
 }
 .shoppingCartWrap {
-  width: 100%;
-  margin-top: 93px;
-}
-.shoppingCart {
   max-width: 1280px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
+}
+.shoppingCart {
+  width: 100%;
 }
 .shoppingCart h2 {
   font-weight: 700;
@@ -101,7 +98,9 @@ body {
   margin-bottom: 52px;
 }
 .shoppingCartInfo {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 4fr 2fr 2fr;
+  align-items: center;
   background-color: #f2f2f2;
   padding-top: 19px;
   padding-bottom: 18px;
@@ -116,27 +115,16 @@ body {
   width: 20px;
   height: 20px;
 }
-#productInfo {
-  margin-right: 379px;
-}
-#count {
-  margin-right: 238px;
-}
-#productPrice {
-  margin-right: 131px;
-}
 .productsContainer {
-  width: 100%;
-}
-.productDiv {
-  display: flex;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 20px;
 }
-.productContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.productDiv {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 2fr 2fr 2fr 2fr;
+  align-items: center;
 }
 .productCheck {
   margin-top: 90px;
@@ -151,12 +139,6 @@ body {
   margin-left: 40px;
   margin-top: 20px;
   border-radius: 10px;
-}
-.productContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 36px;
 }
 .storeName {
   font-weight: 400;
@@ -190,4 +172,10 @@ body {
 .increaseButton {
   width: 50px;
   height: 50px;
+}
+.totalProductPrice{
+  color: #EB5757;
+}
+.totalProductPrice::after{
+  content: '원';
 }

@@ -134,8 +134,8 @@ function drawProduct(data) {
   $decreaseButton.className = "decreaseButton";
   const $increaseButton = document.createElement("button");
   $increaseButton.className = "increaseButton";
-  let $productPrice = document.createElement("p");
-  $productPrice.className = "productPrice";
+  let $totalProductPrice = document.createElement("p");
+  $totalProductPrice.className = "totalProductPrice";
   const $goPaymentButton = document.createElement("button");
   $goPaymentButton.className = "goPaymentButton";
 
@@ -151,7 +151,7 @@ function drawProduct(data) {
       let value = parseInt($count.value);
       if (value > parseInt($count.min)) {
           $count.value = value - 1;
-          $productPrice.innerText = $count.value * priceValue;
+          $totalProductPrice.innerText = $count.value * priceValue;
       }
   });
 
@@ -159,7 +159,7 @@ function drawProduct(data) {
       let value = parseInt($count.value);
       if (value < parseInt($count.max)) {
           $count.value = value + 1;
-          $productPrice.innerText = $count.value * priceValue;
+          $totalProductPrice.innerText = $count.value * priceValue;
       }
   });
 
@@ -169,13 +169,13 @@ function drawProduct(data) {
 
   const countValue = Number($count.value);
   const priceValue = data.price;
-  $productPrice.innerText = countValue * priceValue;
+  $totalProductPrice.innerText = countValue * priceValue;
 
   $countContainer.append($decreaseButton, $count, $increaseButton);
 
   $productImage.src = data.image;
-  $storeName.textContent = data.store_name;
-  $productName.textContent = data.product_name;
+	$storeName.textContent = data.seller.store_name;
+  $productName.textContent = data.name;
 
   let formattedPrice;
   if (data.price && !isNaN(data.price)) {
@@ -191,7 +191,7 @@ function drawProduct(data) {
       $productImage,
       $productContent,
       $countContainer,
-      $productPrice
+      $totalProductPrice
   );
   $productContent.append($storeName, $productName, $price);
   document.body.appendChild($productsContainer);
