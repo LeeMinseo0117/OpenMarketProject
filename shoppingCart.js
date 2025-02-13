@@ -273,11 +273,11 @@ function checkLoginStatus() {
     return totalPrice;
 }
 
- function purchaseProduct(){
+  function purchaseProduct(){
     const $purchaseContainer = document.createElement('div');
     $purchaseContainer.className = 'purchaseContainer';
     const $allPurchaseButton = document.createElement('button');
-    $allPurchaseButton.className = 'allPurchaseButton';
+    $allPurchaseButton.className = 'allPurchaseButton'; 
     const $totalProductPrice = document.createElement('p');
     $totalProductPrice.className = 'totalProductPrice';
  

@@ -194,3 +194,13 @@ margin: auto;
   font-size: 24px;
   font-weight: 700;
 }
+.totalProductPrice{
+  font-size: 30px;
+  color: #EB5757;
+  text-align: center;
+}
+.totalProductPrice::before{
+  content: '총 상품 금액: ';
+  font-weight: 700;
+  color: #000000;
+}
