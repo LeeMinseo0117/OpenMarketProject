@@ -173,12 +173,14 @@ margin: auto;
 .increaseButton {
   width: 50px;
   height: 50px;
+  background-color:transparent;
+
 }
-.totalProductPrice{
+.productTotalPrice{
   color: #EB5757;
   text-align: center;
 }
-.totalProductPrice::after{
+.productTotalPrice::after{
   content: '원';
 }
 .deleteButton {
@@ -187,4 +189,14 @@ margin: auto;
   width: 22px;
   height: 22px;
   background-color:transparent;
+}
+.allPurchaseButton{
+  width: 220px;
+  height: 68px;
+  background-color: #21BF48;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 700;
 }
