@@ -180,6 +180,9 @@ function checkLoginStatus() {
         if (value > parseInt($count.min)) {
             $count.value = value - 1;
             $productTotalPrice.innerText = ($count.value * priceValue).toLocaleString("ko-KR") + "원";
+						if($productCheck.checked) {
+							updateTotalPrice();
+						}
         }
     });
  
@@ -188,6 +191,9 @@ function checkLoginStatus() {
         if (value < parseInt($count.max)) {
             $count.value = value + 1;
             $productTotalPrice.innerText = ($count.value * priceValue).toLocaleString("ko-KR") + "원";
+						if($productCheck.checked) {
+							updateTotalPrice();
+						}
         }
     });
  
@@ -246,21 +252,27 @@ function checkLoginStatus() {
  
     document.body.append($productsContainer);
  }
- 
+
+ function updateTotalPrice() {
+	const totalPrice = calculateTotalPrice();
+	const $totalProductPrice = document.querySelector('.totalProductPrice');
+	if($totalProductPrice) {
+		$totalProductPrice.textContent = totalPrice.toLocaleString('ko-KR') + '원';
+	}
+ }
+
  function calculateTotalPrice() {
     const checkedProducts = document.querySelectorAll('.productCheck:checked');
     let totalPrice = 0;
- 
     checkedProducts.forEach(checkbox => {
         const container = checkbox.closest('.productDiv');
-        const count = parseInt(container.querySelector('.count').value);
         const priceText = container.querySelector('.productTotalPrice').textContent;
         const price = parseInt(priceText.replace(/[,원]/g, '')); 
         totalPrice += price;
     });
     return totalPrice;
- }
- 
+}
+
  function purchaseProduct(){
     const $purchaseContainer = document.createElement('div');
     $purchaseContainer.className = 'purchaseContainer';
@@ -279,8 +291,7 @@ function checkLoginStatus() {
  
     document.addEventListener('change', (e) => {
         if(e.target.classList.contains('productCheck')) {
-            const totalPrice = calculateTotalPrice();
-            $totalProductPrice.textContent = totalPrice.toLocaleString('ko-KR') + '원';
+					updateTotalPrice();
         }
     });
  }
