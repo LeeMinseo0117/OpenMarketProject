@@ -123,8 +123,10 @@ body {
 .productDiv {
   width: 100%;
   display: grid;
-  grid-template-columns: 40px 2fr 2fr 2fr 2fr;
+  grid-template-columns: 40px 2fr 2fr 2fr 2fr 0.2fr;
   align-items: center;
+  border: 2px solid #E0E0E0;
+  border-radius: 10px;
 }
 .productCheck {
   margin-top: 90px;
@@ -136,8 +138,8 @@ body {
   width: 160px;
   height: 160px;
   object-fit: fill;
-  margin-left: 40px;
-  margin-top: 20px;
+  margin: auto;
+  padding: 20px 0px;
   border-radius: 10px;
 }
 .storeName {
@@ -158,8 +160,7 @@ body {
   content: "원";
 }
 .countContainer {
-  margin-left: 48px;
-  margin-top: 75px;
+margin: auto;
 }
 .count {
   font-size: 14px;
@@ -175,7 +176,15 @@ body {
 }
 .totalProductPrice{
   color: #EB5757;
+  text-align: center;
 }
 .totalProductPrice::after{
   content: '원';
+}
+.deleteButton {
+  border: none;
+  background-image: url(./src/icon-delete.svg);
+  width: 22px;
+  height: 22px;
+  background-color:transparent;
 }
