@@ -156,9 +156,6 @@ body {
   font-weight: 700;
   font-size: 16px;
 }
-.price::after {
-  content: "원";
-}
 .countContainer {
 margin: auto;
 }
@@ -179,9 +176,6 @@ margin: auto;
 .productTotalPrice{
   color: #EB5757;
   text-align: center;
-}
-.productTotalPrice::after{
-  content: '원';
 }
 .deleteButton {
   border: none;
