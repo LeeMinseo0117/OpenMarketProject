@@ -87,6 +87,7 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 90px;
 }
 .shoppingCart {
   width: 100%;
@@ -96,6 +97,7 @@ body {
   font-size: 36px;
   margin-top: 54px;
   margin-bottom: 52px;
+  text-align: center;
 }
 .shoppingCartInfo {
   display: grid;
@@ -125,7 +127,7 @@ body {
   display: grid;
   grid-template-columns: 40px 2fr 2fr 2fr 2fr 0.2fr;
   align-items: center;
-  border: 2px solid #E0E0E0;
+  border: 2px solid #e0e0e0;
   border-radius: 10px;
 }
 .productCheck {
@@ -157,7 +159,7 @@ body {
   font-size: 16px;
 }
 .countContainer {
-margin: auto;
+  margin: auto;
 }
 .count {
   font-size: 14px;
@@ -170,11 +172,10 @@ margin: auto;
 .increaseButton {
   width: 50px;
   height: 50px;
-  background-color:transparent;
-
+  background-color: transparent;
 }
-.productTotalPrice{
-  color: #EB5757;
+.productTotalPrice {
+  color: #eb5757;
   text-align: center;
 }
 .deleteButton {
@@ -182,25 +183,25 @@ margin: auto;
   background-image: url(./src/icon-delete.svg);
   width: 22px;
   height: 22px;
-  background-color:transparent;
+  background-color: transparent;
 }
-.allPurchaseButton{
+.allPurchaseButton {
   width: 220px;
   height: 68px;
-  background-color: #21BF48;
+  background-color: #21bf48;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   font-size: 24px;
   font-weight: 700;
 }
-.totalProductPrice{
+.totalProductPrice {
   font-size: 30px;
-  color: #EB5757;
+  color: #eb5757;
   text-align: center;
 }
-.totalProductPrice::before{
-  content: '총 상품 금액: ';
+.totalProductPrice::before {
+  content: "총 상품 금액: ";
   font-weight: 700;
   color: #000000;
 }
