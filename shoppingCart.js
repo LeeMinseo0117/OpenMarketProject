@@ -297,7 +297,11 @@ function purchaseProduct() {
   $totalProductPrice.className = "totalProductPrice";
 
   $allPurchaseButton.textContent = "주문하기";
-
+  $allPurchaseButton.style.display = "flex";
+  $allPurchaseButton.style.justifyContent = "center";
+  $allPurchaseButton.style.alignItems = "center";
+  $allPurchaseButton.style.width = "220px";
+  $allPurchaseButton.style.height = "68px";
   const initialTotalPrice = calculateTotalPrice();
   $totalProductPrice.textContent =
     initialTotalPrice.toLocaleString("ko-KR") + "원";
@@ -309,6 +313,11 @@ function purchaseProduct() {
     if (e.target.classList.contains("productCheck")) {
       updateTotalPrice();
     }
+  });
+
+  $allPurchaseButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    location.href = "./payment.html";
   });
 }
 
