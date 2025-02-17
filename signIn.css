@@ -35,23 +35,19 @@ a {
   height: 74px;
   margin-bottom: 70px;
 }
-.buyerMembership,
-.sellerMembership {
-  font-weight: 500;
-  font-size: 18px;
-  text-decoration: none;
-  color: #000000;
-  border: 1px solid #c4c4c4;
-  border-radius: 10px;
-  width: 275px;
-  padding: 20px 88px 38px 87px;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
 .membershipWrap {
   display: flex;
   justify-content: center;
-  transform: translateY(2px);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.aType {
+  padding: 20px 40px;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
 }
 .sellerMembership {
   background-color: #f2f2f2;

@@ -37,17 +37,15 @@ header {
   gap: 10px;
   margin-bottom: 10px;
 }
-.btnType {
+.aType {
   padding: 20px 40px;
   border: 1px solid #c4c4c4;
   border-radius: 10px;
   font-size: 16px;
   color: #000;
+  text-decoration: none;
 }
-.btnType.active {
-  background-color: #fff;
-}
-.btnType:not(.active) {
+.seller {
   background-color: #f2f2f2;
 }
 .signUpForm {
