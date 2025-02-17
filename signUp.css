@@ -1,92 +1,123 @@
 @font-face {
-  font-family: "SpoqaHanSansNeo-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+  font-family: "SpoqaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
-.headerWrap,
-.articleWrap,
-.footerWrap {
-  width: 100%;
+body {
+  font-family: "SpoqaHanSansNeo";
+  background-color: #fff;
 }
-
-header,
-article,
-footer {
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+input,
+select {
+  outline: none;
+}
+.mainWrap {
   max-width: 550px;
   margin: 0 auto;
+  padding: 20px;
 }
-#logo {
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.logoWrap img {
   width: 238px;
   height: 74px;
 }
-header {
+.membershipType {
   display: flex;
   justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-article {
-  display: flex;
-  flex-direction: column;
-}
-.membershipWrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 70px;
-}
-#buyerMembership,
-#sellerMembership {
-  font-family: "SpoqaHanSansNeo-Regular";
-  font-weight: 500;
-  font-size: 18px;
-  text-decoration: none;
-  color: #000000;
+.btnType {
+  padding: 20px 40px;
   border: 1px solid #c4c4c4;
   border-radius: 10px;
-  padding: 20px 88px 38px 87px;
+  font-size: 16px;
+  color: #000;
 }
-#sellerMembership {
+.btnType.active {
+  background-color: #fff;
+}
+.btnType:not(.active) {
   background-color: #f2f2f2;
 }
-label {
-  display: block;
-  margin-bottom: 5px;
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #c4c4c4;
+  padding: 30px;
+  border-radius: 10px;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.inputGroup label {
+  font-size: 14px;
   color: #666;
 }
-input {
+.inputGroup input,
+.inputGroup select {
+  height: 40px;
+  padding: 0 10px;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
-  box-sizing: border-box;
 }
-#btnConfirm {
-  width: 122px;
-  height: 54px;
-  border: none;
-  border-radius: 5px;
+.inputWithButton {
+  display: flex;
+  gap: 10px;
+}
+.inputWithButton input {
+  flex: 1;
+}
+.btnDuplicateCheck {
+  padding: 0 20px;
   background-color: #21bf48;
-  margin-left: 12px;
-  color: #ffffff;
-  font-family: "SpoqaHanSansNeo-Regular";
+  color: white;
+  border-radius: 5px;
+}
+.phoneInput {
+  display: flex;
+  gap: 10px;
+}
+.phoneInput select {
+  width: 80px;
+}
+.phoneInput input {
+  flex: 1;
+}
+.agreeTerms {
+  margin: 20px 0;
+}
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+.checkboxLabel input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+.btnSignUp {
+  width: 100%;
+  height: 50px;
+  background-color: #c4c4c4;
+  color: white;
+  border-radius: 5px;
   font-size: 16px;
-  font-weight: 500;
-}
-.formGroup:nth-child(1) {
-  margin-top: 58px;
-}
-.formGroup:nth-child(2) {
-  margin-top: 42px;
-}
-.formGroup:nth-child(3) {
-  margin-top: 12px;
-}
-.formGroup:nth-child(4) {
-  margin-top: 50px;
-}
-.formGroup:nth-child(5) {
-  margin-top: 16px;
-}
-#id {
-  width: 346px;
-  height: 54px;
+  margin-top: 10px;
 }
