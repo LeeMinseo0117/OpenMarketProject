@@ -1,0 +1,171 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.headerWrap {
+  width: 100%;
+}
+.headerWrap {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 5px 0px #0000001a;
+}
+.topNavigationBar {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.topNavigationBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0px;
+  background-color: white;
+}
+
+.headerLeftWrap {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  margin-right: 30px;
+}
+
+.headerLeftWrap input[type="search"] {
+  width: 400px;
+  height: 46px;
+  padding: 13px 22px;
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+  font-size: 16px;
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: 400;
+  font-size: 16px;
+}
+#search {
+  transform: translateX(-50px);
+}
+.headerRightWrap {
+  display: flex;
+  align-items: center;
+}
+
+.headerRightWrap a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 26px;
+  text-decoration: none;
+  color: black;
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+}
+
+.headerRightWrap img {
+  margin-bottom: 5px;
+}
+.topNavigationBar input {
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+}
+.paymentWrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 90px;
+  border-radius: 10px;
+}
+.payment {
+  width: 100%;
+}
+.payment h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin-top: 54px;
+  margin-bottom: 52px;
+  text-align: center;
+}
+.paymentInfo {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding-top: 19px;
+  padding-bottom: 18px;
+}
+.paymentInfo button {
+  border: none;
+  background: none;
+}
+.clickMyPage {
+  margin-bottom: 8px;
+}
+.clickMyPage:hover,
+.clickLogOut:hover {
+  border: 1px solid #767676;
+  border-radius: 5px;
+}
+.modalContainer {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.productsContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.productDiv {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.productImage {
+  width: 160px;
+  height: 160px;
+  object-fit: fill;
+  margin: auto;
+  padding: 20px 0px;
+  border-radius: 10px;
+}
+.storeName {
+  font-weight: 400;
+  font-size: 14px;
+  color: #767676;
+}
+.price {
+  text-align: center;
+}
+.totalPrice {
+  text-align: right;
+  font-weight: 500;
+  font-size: 18px;
+}
