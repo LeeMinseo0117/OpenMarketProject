@@ -12,6 +12,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "SpoqaHanSansNeo-Regular";
 }
 .headerWrap,
 .articleWrap {
@@ -36,7 +37,6 @@ a {
 }
 .buyerMembership,
 .sellerMembership {
-  font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 500;
   font-size: 18px;
   text-decoration: none;
@@ -79,7 +79,6 @@ form {
   margin-bottom: 36px;
 }
 #signIn {
-  font-family: "SpoqaHanSansNeo-Regular";
   padding: 19px 215px;
   box-sizing: border-box;
   margin: 0 35px;
@@ -102,7 +101,6 @@ a {
   margin: 0 14px;
 }
 #alert {
-  font-family: "SpoqaHanSansNeo-Regular";
   margin-left: 35px;
   margin-bottom: 26px;
   font-weight: 500;
