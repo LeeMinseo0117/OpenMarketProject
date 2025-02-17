@@ -291,7 +291,7 @@ function purchaseProduct() {
   $purchaseContainer.style.alignItems = "center";
   $purchaseContainer.style.gap = "20px";
 
-  const $allPurchaseButton = document.createElement("button");
+  const $allPurchaseButton = document.createElement("a");
   $allPurchaseButton.className = "allPurchaseButton";
   const $totalProductPrice = document.createElement("p");
   $totalProductPrice.className = "totalProductPrice";
