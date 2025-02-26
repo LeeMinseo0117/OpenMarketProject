@@ -6,10 +6,12 @@
   font-style: normal;
 }
 
+body {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
 .headerWrap {
   width: 100%;
-}
-.headerWrap {
   background-color: #ffffff;
   position: fixed;
   top: 0;
@@ -19,11 +21,10 @@
   z-index: 1000;
   box-shadow: 0px 4px 5px 0px #0000001a;
 }
+
 .topNavigationBar {
   max-width: 1280px;
   margin: 0 auto;
-}
-.topNavigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,9 +52,11 @@
   font-weight: 400;
   font-size: 16px;
 }
+
 #search {
   transform: translateX(-50px);
 }
+
 .headerRightWrap {
   display: flex;
   align-items: center;
@@ -75,10 +78,12 @@
 .headerRightWrap img {
   margin-bottom: 5px;
 }
+
 .topNavigationBar input {
   border: 2px solid #21bf48;
   border-radius: 50px;
 }
+
 .paymentWrap {
   max-width: 1280px;
   margin: 0 auto;
@@ -86,16 +91,19 @@
   margin-top: 90px;
   border-radius: 10px;
 }
+
 .payment {
   width: 100%;
 }
-.payment h2 {
+
+.paymentH2 {
   font-weight: 700;
   font-size: 36px;
   margin-top: 54px;
   margin-bottom: 52px;
   text-align: center;
 }
+
 .paymentInfo {
   display: grid;
   grid-template-columns: 4fr 1fr;
@@ -104,18 +112,22 @@
   padding-top: 19px;
   padding-bottom: 18px;
 }
+
 .paymentInfo button {
   border: none;
   background: none;
 }
+
 .clickMyPage {
   margin-bottom: 8px;
 }
+
 .clickMyPage:hover,
 .clickLogOut:hover {
   border: 1px solid #767676;
   border-radius: 5px;
 }
+
 .modalContainer {
   display: none;
   position: fixed;
@@ -127,6 +139,7 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modalContent {
   background-color: #fefefe;
   margin: 15% auto;
@@ -134,11 +147,13 @@
   border: 1px solid #888;
   width: 80%;
 }
+
 .productsContainer {
   max-width: 1280px;
   margin: 0 auto;
   padding: 10px;
 }
+
 .productDiv {
   width: 100%;
   display: grid;
@@ -148,6 +163,7 @@
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 .productImage {
   width: 160px;
   height: 160px;
@@ -156,16 +172,116 @@
   padding: 20px 0px;
   border-radius: 10px;
 }
+
 .storeName {
   font-weight: 400;
   font-size: 14px;
   color: #767676;
 }
+
 .price {
   text-align: center;
 }
+
 .totalPrice {
   text-align: right;
   font-weight: 500;
   font-size: 18px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.deliveryInfo {
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.orderName,
+.ordererPhone,
+.ordererEmail,
+.recipient,
+.recipientPhone,
+.address1Input,
+.address2Input {
+  width: 300px;
+  padding: 8px;
+}
+
+.addressContainer {
+  margin-top: 20px;
+}
+
+.zipGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.zipCodeInput {
+  width: 150px;
+  margin-right: 10px;
+  padding: 8px;
+}
+
+.zipButton {
+  padding: 8px 15px;
+  background-color: #21bf48;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.ordererSection,
+.deliveryAddressSection {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ordererInfo,
+.deliveryAddressInfo {
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+.zipWrapper {
+  display: flex;
+  flex: 1;
+}
+
+.zipCodeInput {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.address1Input,
+.address2Input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }

@@ -107,7 +107,6 @@ const cartListGet = async function () {
         }
       });
 
-      // 총액 표시
       const $totalPrice = document.createElement("div");
       $totalPrice.className = "totalPrice";
       $totalPrice.innerText = `총 주문금액: ${totalPrice.toLocaleString(
@@ -160,29 +159,25 @@ function drawProduct(data, quantity, cartItemId, container) {
 }
 
 function drawOrder() {
-  const container = document.querySelector(".payment");
+  const $container = document.querySelector(".payment");
+  $container.className = "container";
 
-  // Daum 우편번호 API 스크립트 추가
   if (!document.querySelector('script[src*="postcode.v2.js"]')) {
-    const daumScript = document.createElement("script");
-    daumScript.src =
+    const $daumScript = document.createElement("script");
+    $daumScript.src =
       "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
-    document.head.appendChild(daumScript);
+    document.head.appendChild($daumScript);
   }
 
   window.execDaumPostcode = function () {
     new daum.Postcode({
       oncomplete: function (data) {
-        // 팝업을 통한 검색 결과 항목 클릭 시 실행
-        var addr = ""; // 주소_결과값이 없을 경우 공백
-        var extraAddr = ""; // 참고항목
+        var addr = "";
+        var extraAddr = "";
 
-        //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
         if (data.userSelectedType === "R") {
-          // 도로명 주소를 선택
           addr = data.roadAddress;
         } else {
-          // 지번 주소를 선택
           addr = data.jibunAddress;
         }
 
@@ -198,149 +193,192 @@ function drawOrder() {
             extraAddr = " (" + extraAddr + ")";
           }
         } else {
-          document.getElementById("UserAdd1").value = "";
+          document.getElementById("userAdd1").value = "";
         }
         document.getElementById("zipCodeInput").value = data.zonecode;
-        document.getElementById("UserAdd1").value = addr;
-        document.getElementById("UserAdd1").value += extraAddr;
-        document.getElementById("UserAdd2").focus();
+        document.getElementById("userAdd1").value = addr;
+        document.getElementById("userAdd1").value += extraAddr;
+        document.getElementById("userAdd2").focus();
       },
     }).open();
   };
 
   const $deliveryInfo = document.createElement("h2");
+  $deliveryInfo.className = "deliveryInfo";
   $deliveryInfo.textContent = "배송정보";
-  const $ordererInfo = document.createElement("h3");
-  $ordererInfo.textContent = "주문자 정보";
+  $container.appendChild($deliveryInfo);
 
-  const $orderName = document.createElement("input");
-  $orderName.type = "text";
-  $orderName.id = "orderName";
-  $orderName.name = "orderName";
-  $orderName.value = "";
+  const $ordererSection = document.createElement("div");
+  $ordererSection.className = "ordererSection";
+
+  const $ordererInfo = document.createElement("h3");
+  $ordererInfo.className = "ordererInfo";
+  $ordererInfo.textContent = "주문자 정보";
+  $ordererSection.appendChild($ordererInfo);
+
+  const $nameGroup = document.createElement("div");
+  $nameGroup.className = "inputGroup";
+
   const $orderNameLabel = document.createElement("label");
   $orderNameLabel.htmlFor = "orderName";
   $orderNameLabel.textContent = "이름";
 
-  const $ordererPhone = document.createElement("input");
-  $ordererPhone.type = "tel";
-  $ordererPhone.id = "ordererPhone";
-  $ordererPhone.name = "ordererPhone";
-  $ordererPhone.value = "";
+  const $orderName = document.createElement("input");
+  $orderName.className = "orderName";
+  $orderName.type = "text";
+  $orderName.id = "orderName";
+  $orderName.name = "orderName";
+  $orderName.value = "";
+
+  $nameGroup.appendChild($orderNameLabel);
+  $nameGroup.appendChild($orderName);
+  $ordererSection.appendChild($nameGroup);
+
+  const $phoneGroup = document.createElement("div");
+  $phoneGroup.className = "inputGroup";
+
   const $ordererPhoneLabel = document.createElement("label");
   $ordererPhoneLabel.htmlFor = "ordererPhone";
   $ordererPhoneLabel.textContent = "휴대폰";
 
-  const $ordererEmail = document.createElement("input");
-  $ordererEmail.type = "email";
-  $ordererEmail.id = "ordererEmail";
-  $ordererEmail.name = "ordererEmail";
-  $ordererEmail.value = "";
+  const $ordererPhone = document.createElement("input");
+  $ordererPhone.className = "ordererPhone";
+  $ordererPhone.type = "tel";
+  $ordererPhone.id = "ordererPhone";
+  $ordererPhone.name = "ordererPhone";
+  $ordererPhone.value = "";
+
+  $phoneGroup.appendChild($ordererPhoneLabel);
+  $phoneGroup.appendChild($ordererPhone);
+  $ordererSection.appendChild($phoneGroup);
+
+  const $emailGroup = document.createElement("div");
+  $emailGroup.className = "inputGroup";
+
   const $ordererEmailLabel = document.createElement("label");
   $ordererEmailLabel.htmlFor = "ordererEmail";
   $ordererEmailLabel.textContent = "이메일";
 
-  container.appendChild($deliveryInfo);
-  container.appendChild($ordererInfo);
+  const $ordererEmail = document.createElement("input");
+  $ordererEmail.className = "ordererEmail";
+  $ordererEmail.type = "email";
+  $ordererEmail.id = "ordererEmail";
+  $ordererEmail.name = "ordererEmail";
+  $ordererEmail.value = "";
 
-  const $nameGroup = document.createElement("div");
-  $nameGroup.appendChild($orderNameLabel);
-  $nameGroup.appendChild($orderName);
-
-  const $phoneGroup = document.createElement("div");
-  $phoneGroup.appendChild($ordererPhoneLabel);
-  $phoneGroup.appendChild($ordererPhone);
-
-  const $emailGroup = document.createElement("div");
   $emailGroup.appendChild($ordererEmailLabel);
   $emailGroup.appendChild($ordererEmail);
+  $ordererSection.appendChild($emailGroup);
 
-  $ordererInfo.appendChild($nameGroup);
-  $ordererInfo.appendChild($phoneGroup);
-  $ordererInfo.appendChild($emailGroup);
+  $container.appendChild($ordererSection);
+
+  const $deliveryAddressSection = document.createElement("div");
+  $deliveryAddressSection.className = "deliveryAddressSection";
 
   const $deliveryAddressInfo = document.createElement("h3");
+  $deliveryAddressInfo.className = "deliveryAddressInfo";
   $deliveryAddressInfo.textContent = "배송지 정보";
+  $deliveryAddressSection.appendChild($deliveryAddressInfo);
 
-  const $recipient = document.createElement("input");
-  $recipient.type = "text";
-  $recipient.id = "recipient";
-  $recipient.name = "recipient";
-  $recipient.value = "";
+  const $recipientGroup = document.createElement("div");
+  $recipientGroup.className = "inputGroup";
+
   const $recipientLabel = document.createElement("label");
   $recipientLabel.htmlFor = "recipient";
   $recipientLabel.textContent = "수령인";
 
-  const $recipientPhone = document.createElement("input");
-  $recipientPhone.type = "tel";
-  $recipientPhone.id = "recipientPhone";
-  $recipientPhone.name = "recipientPhone";
-  $recipientPhone.value = "";
+  const $recipient = document.createElement("input");
+  $recipient.className = "recipient";
+  $recipient.type = "text";
+  $recipient.id = "recipient";
+  $recipient.name = "recipient";
+  $recipient.value = "";
+
+  $recipientGroup.appendChild($recipientLabel);
+  $recipientGroup.appendChild($recipient);
+  $deliveryAddressSection.appendChild($recipientGroup);
+
+  const $recipientPhoneGroup = document.createElement("div");
+  $recipientPhoneGroup.className = "inputGroup";
+
   const $recipientPhoneLabel = document.createElement("label");
   $recipientPhoneLabel.htmlFor = "recipientPhone";
   $recipientPhoneLabel.textContent = "휴대폰";
 
+  const $recipientPhone = document.createElement("input");
+  $recipientPhone.className = "recipientPhone";
+  $recipientPhone.type = "tel";
+  $recipientPhone.id = "recipientPhone";
+  $recipientPhone.name = "recipientPhone";
+  $recipientPhone.value = "";
+
+  $recipientPhoneGroup.appendChild($recipientPhoneLabel);
+  $recipientPhoneGroup.appendChild($recipientPhone);
+  $deliveryAddressSection.appendChild($recipientPhoneGroup);
+
   const $addressContainer = document.createElement("div");
   $addressContainer.className = "addressContainer";
 
-  const $addressLabel = document.createElement("label");
-  $addressLabel.htmlFor = "addressLabel";
-  $addressLabel.className = "addressLabel";
-  $addressLabel.textContent = "■ 주소 *";
+  const $addressLabelGroup = document.createElement("div");
+  $addressLabelGroup.className = "inputGroup";
 
-  const $br1 = document.createElement("br");
+  const $addressLabel = document.createElement("label");
+  $addressLabel.htmlFor = "zipCodeInput";
+  $addressLabel.className = "addressLabel";
+  $addressLabel.textContent = "배송주소";
+
+  const $zipWrapper = document.createElement("div");
+  $zipWrapper.className = "zipWrapper";
+  $zipWrapper.style.display = "flex";
+  $zipWrapper.style.flex = "1";
 
   const $zipCodeInput = document.createElement("input");
-  $zipCodeInput.type = "text";
   $zipCodeInput.className = "zipCodeInput";
+  $zipCodeInput.type = "text";
   $zipCodeInput.id = "zipCodeInput";
   $zipCodeInput.name = "zipCodeInput";
   $zipCodeInput.maxLength = "10";
   $zipCodeInput.placeholder = "우편번호";
+  $zipCodeInput.style.marginRight = "10px";
 
   const $zipButton = document.createElement("input");
+  $zipButton.className = "zipButton";
   $zipButton.type = "button";
   $zipButton.id = "zipButton";
-  $zipButton.className = "zipButton";
   $zipButton.value = "우편번호 찾기";
   $zipButton.onclick = function () {
     execDaumPostcode();
   };
 
+  $zipWrapper.appendChild($zipCodeInput);
+  $zipWrapper.appendChild($zipButton);
+
+  $addressLabelGroup.appendChild($addressLabel);
+  $addressLabelGroup.appendChild($zipWrapper);
+  $addressContainer.appendChild($addressLabelGroup);
+
   const $address1Input = document.createElement("input");
+  $address1Input.className = "address1Input";
   $address1Input.type = "text";
-  $address1Input.className = "form-control mb-2";
   $address1Input.name = "user_add1";
-  $address1Input.id = "UserAdd1";
+  $address1Input.id = "userAdd1";
   $address1Input.required = true;
   $address1Input.readOnly = true;
+  $address1Input.style.width = "100%";
+  $address1Input.style.marginTop = "10px";
+  $address1Input.style.marginBottom = "10px";
+  $addressContainer.appendChild($address1Input);
 
   const $address2Input = document.createElement("input");
+  $address2Input.className = "address2Input";
   $address2Input.type = "text";
-  $address2Input.className = "form-control";
   $address2Input.name = "user_add2";
-  $address2Input.id = "UserAdd2";
+  $address2Input.id = "userAdd2";
   $address2Input.maxLength = "40";
   $address2Input.placeholder = "상세 주소를 입력하세요";
-
-  const $recipientGroup = document.createElement("div");
-  $recipientGroup.appendChild($recipientLabel);
-  $recipientGroup.appendChild($recipient);
-
-  const $recipientPhoneGroup = document.createElement("div");
-  $recipientPhoneGroup.appendChild($recipientPhoneLabel);
-  $recipientPhoneGroup.appendChild($recipientPhone);
-
-  container.appendChild($deliveryAddressInfo);
-  $deliveryAddressInfo.appendChild($recipientGroup);
-  $deliveryAddressInfo.appendChild($recipientPhoneGroup);
-
-  $addressContainer.appendChild($addressLabel);
-  $addressContainer.appendChild($br1);
-  $addressContainer.appendChild($zipCodeInput);
-  $addressContainer.appendChild($zipButton);
-  $addressContainer.appendChild($address1Input);
+  $address2Input.style.width = "100%";
   $addressContainer.appendChild($address2Input);
 
-  container.appendChild($addressContainer);
+  $deliveryAddressSection.appendChild($addressContainer);
+  $container.appendChild($deliveryAddressSection);
 }
