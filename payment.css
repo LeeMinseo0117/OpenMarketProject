@@ -195,7 +195,8 @@ body {
   padding: 20px;
 }
 
-.deliveryInfo {
+.deliveryInfo,
+.paymentMethod {
   font-weight: 700;
   font-size: 36px;
   text-align: center;
@@ -276,7 +277,6 @@ label {
   width: 200px;
   margin-right: 10px;
 }
-
 .address1Input,
 .address2Input {
   width: 100%;
@@ -284,4 +284,9 @@ label {
   padding: 8px;
   margin-top: 10px;
   margin-bottom: 15px;
+}
+.paymentOptionsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

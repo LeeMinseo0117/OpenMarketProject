@@ -160,7 +160,7 @@ function drawProduct(data, quantity, cartItemId, container) {
 
 function drawOrder() {
   const $container = document.querySelector(".payment");
-  $container.className = "container";
+  $container.classList.add("container");
 
   if (!document.querySelector('script[src*="postcode.v2.js"]')) {
     const $daumScript = document.createElement("script");
@@ -381,4 +381,45 @@ function drawOrder() {
 
   $deliveryAddressSection.appendChild($addressContainer);
   $container.appendChild($deliveryAddressSection);
+
+  const $paymentMethod = document.createElement("h2");
+  $paymentMethod.className = "paymentMethod";
+  $paymentMethod.textContent = "결제수단";
+  $container.appendChild($paymentMethod);
+
+  const paymentOptions = [
+    { id: "creditCard", text: "신용/체크카드" },
+    { id: "bankTransfer", text: "무통장 입금" },
+    { id: "mobilePayment", text: "휴대폰 결제" },
+    { id: "naverPay", text: "네이버페이" },
+    { id: "kakaoPay", text: "카카오페이" },
+  ];
+
+  const $paymentOptionsContainer = document.createElement("div");
+  $paymentOptionsContainer.className = "paymentOptionsContainer";
+
+  paymentOptions.forEach((option) => {
+    const $radioContainer = document.createElement("div");
+    $radioContainer.style.display = "flex";
+    $radioContainer.style.alignItems = "center";
+
+    const $radio = document.createElement("input");
+    $radio.type = "radio";
+    $radio.id = option.id;
+    $radio.name = "paymentMethod";
+    $radio.value = option.id;
+    $radio.style.margin = "0 8px 0 0";
+
+    const $label = document.createElement("label");
+    $label.htmlFor = option.id;
+    $label.textContent = option.text;
+    $label.style.cursor = "pointer";
+
+    $radioContainer.appendChild($radio);
+    $radioContainer.appendChild($label);
+
+    $paymentOptionsContainer.appendChild($radioContainer);
+  });
+
+  $container.appendChild($paymentOptionsContainer);
 }
