@@ -422,4 +422,38 @@ function drawOrder() {
   });
 
   $container.appendChild($paymentOptionsContainer);
+
+  const $checkboxContainer = document.createElement("div");
+  $checkboxContainer.className = "checkboxContainer";
+
+  const $agreeCheck = document.createElement("input");
+  $agreeCheck.className = "agreeCheck";
+  $agreeCheck.type = "checkbox";
+  $agreeCheck.id = "agreeCheck";
+  $agreeCheck.name = "agreeCheck";
+
+  const $label = document.createElement("label");
+  $label.htmlFor = "agreeCheck";
+  $label.textContent = "주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.";
+  $label.style.cursor = "pointer";
+  $label.style.marginLeft = "8px";
+
+  $checkboxContainer.style.display = "flex";
+  $checkboxContainer.style.alignItems = "center";
+  $label.style.width = "400px";
+  $checkboxContainer.style.display = "flex";
+  $checkboxContainer.style.alignItems = "center";
+  $checkboxContainer.style.justifyContent = "center";
+  $checkboxContainer.style.marginTop = "30px";
+
+  $checkboxContainer.appendChild($agreeCheck);
+  $checkboxContainer.appendChild($label);
+
+  $container.appendChild($checkboxContainer);
+
+  const $submitButton = document.createElement("button");
+  $submitButton.className = "submitButton";
+  $submitButton.textContent = "결제하기";
+
+  $container.appendChild($submitButton);
 }
