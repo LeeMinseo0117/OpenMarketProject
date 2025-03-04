@@ -249,6 +249,7 @@ label {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .ordererSection,
@@ -289,4 +290,15 @@ label {
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+.submitButton {
+  padding: 10px 20px;
+  background-color: #21bf48;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 20px 65px;
 }
