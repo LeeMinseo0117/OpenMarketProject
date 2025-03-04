@@ -41,9 +41,6 @@ const $userIconLink = document.querySelector("#userIconLink");
 const $userIcon = document.querySelector("#userIcon");
 
 async function init() {
-  console.log("초기화 시작");
-  console.log("로그인 상태:", checkLoginStatus());
-  console.log("access token:", localStorage.getItem("accessToken"));
   await cartListGet();
 }
 
