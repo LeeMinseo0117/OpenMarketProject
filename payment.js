@@ -240,7 +240,7 @@ function drawOrder() {
 
   const $ordererPhone = document.createElement("input");
   $ordererPhone.className = "ordererPhone";
-  $ordererPhone.type = "tel";
+  $ordererPhone.type = "text";
   $ordererPhone.id = "ordererPhone";
   $ordererPhone.name = "ordererPhone";
   $ordererPhone.value = "";
@@ -304,7 +304,7 @@ function drawOrder() {
 
   const $recipientPhone = document.createElement("input");
   $recipientPhone.className = "recipientPhone";
-  $recipientPhone.type = "tel";
+  $recipientPhone.type = "text";
   $recipientPhone.id = "recipientPhone";
   $recipientPhone.name = "recipientPhone";
   $recipientPhone.value = "";
@@ -453,4 +453,164 @@ function drawOrder() {
   $submitButton.textContent = "결제하기";
 
   $container.appendChild($submitButton);
+
+  async function postOrder(orderData) {
+    try {
+      let phoneNumber = orderData.receiver_phone_number.replace(/[^0-9]/g, "");
+
+      if (phoneNumber.length === 11) {
+        phoneNumber = phoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
+      } else if (phoneNumber.length === 10) {
+        phoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+      }
+
+      orderData.receiver_phone_number = phoneNumber;
+
+      const response = await fetch(
+        "https://estapi.openmarket.weniv.co.kr/order/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(orderData),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`주문 실패: ${JSON.stringify(errorData)}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("주문 실패:", error);
+      return null;
+    }
+  }
+
+  $submitButton.addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    // 폼 검증
+    if (!validateOrderForm()) {
+      return;
+    }
+
+    // 장바구니 아이템 ID 목록 가져오기
+    try {
+      const cartResponse = await fetch(
+        "https://estapi.openmarket.weniv.co.kr/cart/",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
+
+      const cartData = await cartResponse.json();
+
+      const cartItems = cartData.results
+        .map((item) => item.id)
+        .filter((id) => id !== null);
+
+      const paymentMethodMap = {
+        creditCard: "card",
+        bankTransfer: "deposit",
+        mobilePayment: "phone",
+        naverPay: "naverpay",
+        kakaoPay: "kakaopay",
+      };
+
+      // 선택된 결제 방법 가져오기
+      const selectedPaymentMethod = document.querySelector(
+        'input[name="paymentMethod"]:checked'
+      );
+      if (!selectedPaymentMethod) {
+        alert("결제 방법을 선택해주세요.");
+        return;
+      }
+
+      const orderData = {
+        order_type: "cart_order",
+        cart_items: cartItems,
+        total_price: totalPrice,
+        receiver: document.getElementById("recipient").value,
+        receiver_phone_number: document.getElementById("recipientPhone").value,
+        address: `(${document.getElementById("zipCodeInput").value}) ${
+          document.getElementById("userAdd1").value
+        } ${document.getElementById("userAdd2").value}`,
+        address_message: null,
+        payment_method: paymentMethodMap[selectedPaymentMethod.value],
+      };
+
+      const orderResult = await postOrder(orderData);
+
+      if (orderResult) {
+        alert("주문이 완료되었습니다.");
+        window.location.href = "./main.html";
+      }
+    } catch (error) {
+      console.error("주문 처리 중 오류 발생:", error);
+      alert("주문 처리 중 오류가 발생했습니다.");
+    }
+  });
+
+  $container.appendChild($submitButton);
+}
+
+function validateOrderForm() {
+  if (!document.getElementById("orderName").value) {
+    alert("주문자 이름을 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("ordererPhone").value) {
+    alert("주문자 휴대폰 번호를 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("ordererEmail").value) {
+    alert("주문자 이메일을 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("recipient").value) {
+    alert("수령인 이름을 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("recipientPhone").value) {
+    alert("수령인 휴대폰 번호를 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("zipCodeInput").value) {
+    alert("우편번호를 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("userAdd1").value) {
+    alert("주소를 입력해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("userAdd2").value) {
+    alert("상세 주소를 입력해주세요.");
+    return false;
+  }
+
+  if (!document.querySelector('input[name="paymentMethod"]:checked')) {
+    alert("결제 방법을 선택해주세요.");
+    return false;
+  }
+
+  if (!document.getElementById("agreeCheck").checked) {
+    alert("주문 내용 확인 및 정보 제공 동의가 필요합니다.");
+    return false;
+  }
+
+  return true;
 }
