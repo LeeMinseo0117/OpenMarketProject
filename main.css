@@ -6,8 +6,14 @@
   font-style: normal;
 }
 
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
 .headerWrap {
   width: 100%;
+}
+.headerWrap {
   background-color: #ffffff;
   position: fixed;
   top: 0;
@@ -15,12 +21,12 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0px 4px 5px 0px #0000001a;
 }
-
 .topNavigationBar {
   max-width: 1280px;
   margin: 0 auto;
+}
+.topNavigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,15 +50,12 @@
   border: 2px solid #21bf48;
   border-radius: 50px;
   font-size: 16px;
-  font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 400;
   font-size: 16px;
 }
-
 #search {
   transform: translateX(-50px);
 }
-
 .headerRightWrap {
   display: flex;
   align-items: center;
@@ -65,7 +68,6 @@
   margin-left: 26px;
   text-decoration: none;
   color: black;
-  font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 400;
   font-size: 12px;
   text-align: center;
@@ -74,14 +76,95 @@
 .headerRightWrap img {
   margin-bottom: 5px;
 }
-
+.topNavigationBar input {
+  border: 2px solid #21bf48;
+  border-radius: 50px;
+}
 .productContainer {
   max-width: 1280px;
   margin: 0 auto;
 }
-
 .productList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.productItem {
+  width: 33.333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.productImage {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  margin-top: 80px;
+}
+.storeName {
+  font-weight: 400;
+  font-size: 16px;
+  color: #767676;
+  margin-top: 16px;
+}
+.productName {
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.price {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 78px;
+}
+.price::after {
+  content: "원";
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 2px;
+}
+.productLink {
+  text-decoration: none;
+  color: #000000;
+}
+.iconWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.companyInfo {
+  font-size: 14px;
+  font-weight: 400;
+  color: #767676;
+  padding: 10px;
+  line-height: 25px;
+}
+.companyInfo span {
+  font-weight: 700;
+  font-size: 14px;
+}
+.clickMyPage {
+  margin-bottom: 8px;
+}
+.clickMyPage:hover,
+.clickLogOut:hover {
+  border: 1px solid #767676;
+  border-radius: 5px;
+}
+.modalContainer {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
