@@ -6,11 +6,8 @@
   font-style: normal;
 }
 
-.headerWrap,
-.eventBannerWrap {
-  width: 100%;
-}
 .headerWrap {
+  width: 100%;
   background-color: #ffffff;
   position: fixed;
   top: 0;
@@ -20,11 +17,10 @@
   z-index: 1000;
   box-shadow: 0px 4px 5px 0px #0000001a;
 }
-.topNavigationBar{
+
+.topNavigationBar {
   max-width: 1280px;
   margin: 0 auto;
-}
-.topNavigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,9 +48,11 @@
   font-weight: 400;
   font-size: 16px;
 }
+
 #search {
   transform: translateX(-50px);
 }
+
 .headerRightWrap {
   display: flex;
   align-items: center;
@@ -76,34 +74,36 @@
 .headerRightWrap img {
   margin-bottom: 5px;
 }
-.topNavigationBar input {
-  border: 2px solid #21bf48;
-  border-radius: 50px;
-}
-.eventBanner {
-  height: 500px;
-  background-color: #f2f2f2;
-  margin-top: 93px;
-}
+
 .productContainer {
   max-width: 1280px;
   margin: 0 auto;
 }
+
 .productList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.eventBanner {
+  height: 500px;
+  background-color: #f2f2f2;
+  margin-top: 93px;
+}
+
 .productItem {
   width: 33.333%;
   padding: 10px;
   box-sizing: border-box;
 }
+
 .productImage {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
   margin-top: 80px;
 }
+
 .storeName {
   font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 400;
@@ -111,12 +111,14 @@
   color: #767676;
   margin-top: 16px;
 }
+
 .productName {
   font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 400;
   font-size: 18px;
   margin-top: 10px;
 }
+
 .price {
   font-family: "SpoqaHanSansNeo-Regular";
   font-weight: 700;
@@ -124,59 +126,72 @@
   margin-top: 10px;
   margin-bottom: 78px;
 }
+
 .price::after {
   content: "원";
   font-size: 16px;
   font-weight: 400;
   padding-left: 2px;
 }
+
 .productLink {
   text-decoration: none;
   color: #000000;
 }
+
 .footerWrap {
   width: 100%;
   background-color: #f2f2f2;
   margin-top: 180px;
 }
+
 footer {
   max-width: 1280px;
   margin: 0 auto;
 }
+
 .footerNavContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 60px;
 }
+
 .footerNav {
   display: flex;
   align-items: center;
 }
+
 .footerNav a {
   text-decoration: none;
   color: #000000;
 }
+
 .footerNav ul {
   display: inline-flex;
 }
+
 .footerNav ul li {
   padding: 14px;
   font-weight: 400;
   font-size: 14px;
 }
+
 .footerNav ul li:not(:last-child)::after {
   content: "|";
   margin-left: 20px;
 }
+
 .footerNav ul li:nth-child(3) {
   font-weight: 700;
 }
+
 .iconWrap {
   display: flex;
   align-items: center;
   gap: 14px;
 }
+
 .companyInfo {
   font-family: "SpoqaHanSansNeo-Regular";
   font-size: 14px;
@@ -185,18 +200,22 @@ footer {
   padding: 10px;
   line-height: 25px;
 }
+
 .companyInfo span {
   font-weight: 700;
   font-size: 14px;
 }
+
 .clickMyPage {
   margin-bottom: 8px;
 }
+
 .clickMyPage:hover,
 .clickLogOut:hover {
   border: 1px solid #767676;
   border-radius: 5px;
 }
+
 .modalContainer {
   display: none;
   position: fixed;
@@ -208,6 +227,7 @@ footer {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modalContent {
   background-color: #fefefe;
   margin: 15% auto;
