@@ -11,6 +11,7 @@ https://leeminseo0117.github.io/OpenMarketProject/main.html<br>
 테스트 비밀번호: weniv1234<br>
 
 ## 프로젝트 구조
+```
 📦 OpenMarketProject
  ┣ 📂 src
  ┃ ┣ 📜 404.png
@@ -49,3 +50,4 @@ https://leeminseo0117.github.io/OpenMarketProject/main.html<br>
  ┣ 📜 signUp.css
  ┣ 📜 signUp.html
  ┗ 📜 signUp.js
+```
